@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		85AEF6C9FF6D50749DB8BD16 /* Pods_BeeQuick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087E84871B9699301E3F1FF7 /* Pods_BeeQuick.framework */; };
+		BFB299791DC1AC3400273A25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299781DC1AC3400273A25 /* main.m */; };
+		BFB2997C1DC1AC3400273A25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB2997B1DC1AC3400273A25 /* AppDelegate.m */; };
+		BFB299821DC1AC3400273A25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB299801DC1AC3400273A25 /* Main.storyboard */; };
+		BFB299841DC1AC3400273A25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFB299831DC1AC3400273A25 /* Assets.xcassets */; };
+		BFB299871DC1AC3400273A25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB299851DC1AC3400273A25 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		087E84871B9699301E3F1FF7 /* Pods_BeeQuick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeQuick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFB299741DC1AC3400273A25 /* BeeQuick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeQuick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFB299781DC1AC3400273A25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BFB2997A1DC1AC3400273A25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BFB2997B1DC1AC3400273A25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BFB299811DC1AC3400273A25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BFB299831DC1AC3400273A25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BFB299861DC1AC3400273A25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BFB299881DC1AC3400273A25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAF8E1145A0AFF7EA0CDB92C /* Pods-BeeQuick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeQuick.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeeQuick/Pods-BeeQuick.release.xcconfig"; sourceTree = "<group>"; };
+		F9054062EACD365D5ECBAFC5 /* Pods-BeeQuick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeQuick.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeeQuick/Pods-BeeQuick.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BFB299711DC1AC3400273A25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85AEF6C9FF6D50749DB8BD16 /* Pods_BeeQuick.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A1CDA2B8DED3BEAEE3875E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				087E84871B9699301E3F1FF7 /* Pods_BeeQuick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2552EFCCB07839400B3FF555 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9054062EACD365D5ECBAFC5 /* Pods-BeeQuick.debug.xcconfig */,
+				DAF8E1145A0AFF7EA0CDB92C /* Pods-BeeQuick.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BFB2996B1DC1AC3400273A25 = {
+			isa = PBXGroup;
+			children = (
+				BFB299761DC1AC3400273A25 /* BeeQuick */,
+				BFB299751DC1AC3400273A25 /* Products */,
+				2552EFCCB07839400B3FF555 /* Pods */,
+				1A1CDA2B8DED3BEAEE3875E4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BFB299751DC1AC3400273A25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFB299741DC1AC3400273A25 /* BeeQuick.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFB299761DC1AC3400273A25 /* BeeQuick */ = {
+			isa = PBXGroup;
+			children = (
+				BFB2998E1DC1AED200273A25 /* AppDelegate */,
+				BFB2998F1DC1AEE200273A25 /* Macro */,
+				BFB299901DC1AEEB00273A25 /* Category */,
+				BFB299911DC1AEF300273A25 /* Helpers */,
+				BFB299921DC1AEFA00273A25 /* Utils */,
+				BFB299931DC1AEFF00273A25 /* Libraries */,
+				BFB299941DC1AF0A00273A25 /* Protocol */,
+				BFB299951DC1AF1300273A25 /* DataService */,
+				BFB299961DC1AF1D00273A25 /* Models */,
+				BFB299971DC1AF2300273A25 /* General */,
+				BFB299801DC1AC3400273A25 /* Main.storyboard */,
+				BFB299831DC1AC3400273A25 /* Assets.xcassets */,
+				BFB299851DC1AC3400273A25 /* LaunchScreen.storyboard */,
+				BFB299881DC1AC3400273A25 /* Info.plist */,
+				BFB299771DC1AC3400273A25 /* Supporting Files */,
+			);
+			path = BeeQuick;
+			sourceTree = "<group>";
+		};
+		BFB299771DC1AC3400273A25 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BFB299781DC1AC3400273A25 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BFB2998E1DC1AED200273A25 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				BFB2997A1DC1AC3400273A25 /* AppDelegate.h */,
+				BFB2997B1DC1AC3400273A25 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		BFB2998F1DC1AEE200273A25 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Macro;
+			sourceTree = "<group>";
+		};
+		BFB299901DC1AEEB00273A25 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		BFB299911DC1AEF300273A25 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		BFB299921DC1AEFA00273A25 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		BFB299931DC1AEFF00273A25 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		BFB299941DC1AF0A00273A25 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		BFB299951DC1AF1300273A25 /* DataService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataService;
+			sourceTree = "<group>";
+		};
+		BFB299961DC1AF1D00273A25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		BFB299971DC1AF2300273A25 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				BFB299981DC1AF2B00273A25 /* Views */,
+				BFB299991DC1AF3400273A25 /* Cells */,
+				BFB2999A1DC1AF3B00273A25 /* Controllers */,
+				BFB2999B1DC1AF4600273A25 /* ViewModels */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
+		BFB299981DC1AF2B00273A25 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BFB299991DC1AF3400273A25 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		BFB2999A1DC1AF3B00273A25 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BFB2999C1DC1AFBA00273A25 /* HomePage */,
+				BFB2999E1DC1B03D00273A25 /*  ShoppingCart */,
+				BFB2999D1DC1AFC100273A25 /* FlashingMarket */,
+				BFB2999F1DC1B05200273A25 /* Me */,
+				BFB299A01DC1B06100273A25 /* Others */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BFB2999B1DC1AF4600273A25 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		BFB2999C1DC1AFBA00273A25 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = HomePage;
+			sourceTree = "<group>";
+		};
+		BFB2999D1DC1AFC100273A25 /* FlashingMarket */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FlashingMarket;
+			sourceTree = "<group>";
+		};
+		BFB2999E1DC1B03D00273A25 /*  ShoppingCart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = " ShoppingCart";
+			sourceTree = "<group>";
+		};
+		BFB2999F1DC1B05200273A25 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Me;
+			sourceTree = "<group>";
+		};
+		BFB299A01DC1B06100273A25 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BFB299731DC1AC3400273A25 /* BeeQuick */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFB2998B1DC1AC3400273A25 /* Build configuration list for PBXNativeTarget "BeeQuick" */;
+			buildPhases = (
+				689F0543070FBF26E43C7916 /* 📦 Check Pods Manifest.lock */,
+				BFB299701DC1AC3400273A25 /* Sources */,
+				BFB299711DC1AC3400273A25 /* Frameworks */,
+				BFB299721DC1AC3400273A25 /* Resources */,
+				D2ED4382A247958E3609765F /* 📦 Embed Pods Frameworks */,
+				48A32A0717A682014EA55E04 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeeQuick;
+			productName = BeeQuick;
+			productReference = BFB299741DC1AC3400273A25 /* BeeQuick.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFB2996C1DC1AC3400273A25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = xiaodou;
+				TargetAttributes = {
+					BFB299731DC1AC3400273A25 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = BFB2996F1DC1AC3400273A25 /* Build configuration list for PBXProject "BeeQuick" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BFB2996B1DC1AC3400273A25;
+			productRefGroup = BFB299751DC1AC3400273A25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BFB299731DC1AC3400273A25 /* BeeQuick */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BFB299721DC1AC3400273A25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFB299871DC1AC3400273A25 /* LaunchScreen.storyboard in Resources */,
+				BFB299841DC1AC3400273A25 /* Assets.xcassets in Resources */,
+				BFB299821DC1AC3400273A25 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48A32A0717A682014EA55E04 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeeQuick/Pods-BeeQuick-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		689F0543070FBF26E43C7916 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D2ED4382A247958E3609765F /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeeQuick/Pods-BeeQuick-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BFB299701DC1AC3400273A25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFB2997C1DC1AC3400273A25 /* AppDelegate.m in Sources */,
+				BFB299791DC1AC3400273A25 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BFB299801DC1AC3400273A25 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFB299811DC1AC3400273A25 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BFB299851DC1AC3400273A25 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFB299861DC1AC3400273A25 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BFB299891DC1AC3400273A25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BFB2998A1DC1AC3400273A25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BFB2998C1DC1AC3400273A25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9054062EACD365D5ECBAFC5 /* Pods-BeeQuick.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BeeQuick/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaodou.yf.BeeQuick;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BFB2998D1DC1AC3400273A25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAF8E1145A0AFF7EA0CDB92C /* Pods-BeeQuick.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BeeQuick/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaodou.yf.BeeQuick;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BFB2996F1DC1AC3400273A25 /* Build configuration list for PBXProject "BeeQuick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFB299891DC1AC3400273A25 /* Debug */,
+				BFB2998A1DC1AC3400273A25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFB2998B1DC1AC3400273A25 /* Build configuration list for PBXNativeTarget "BeeQuick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFB2998C1DC1AC3400273A25 /* Debug */,
+				BFB2998D1DC1AC3400273A25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFB2996C1DC1AC3400273A25 /* Project object */;
+}
