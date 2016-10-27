@@ -13,6 +13,12 @@
 		BFB299821DC1AC3400273A25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB299801DC1AC3400273A25 /* Main.storyboard */; };
 		BFB299841DC1AC3400273A25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFB299831DC1AC3400273A25 /* Assets.xcassets */; };
 		BFB299871DC1AC3400273A25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB299851DC1AC3400273A25 /* LaunchScreen.storyboard */; };
+		BFB299A41DC1CA2000273A25 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299A31DC1CA2000273A25 /* MainTabBarController.m */; };
+		BFB299B31DC1CE9700273A25 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299B21DC1CE9700273A25 /* BaseViewController.m */; };
+		BFB299B91DC1CEF500273A25 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299B81DC1CEF500273A25 /* HomePageViewController.m */; };
+		BFB299BC1DC1CF2600273A25 /* FlashingMarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299BB1DC1CF2600273A25 /* FlashingMarketViewController.m */; };
+		BFB299BF1DC1CF4B00273A25 /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299BE1DC1CF4B00273A25 /* ShoppingCartViewController.m */; };
+		BFB299C21DC1CF6900273A25 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299C11DC1CF6900273A25 /* UserCenterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +31,19 @@
 		BFB299831DC1AC3400273A25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFB299861DC1AC3400273A25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFB299881DC1AC3400273A25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFB299A11DC1C8E400273A25 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		BFB299A21DC1CA2000273A25 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		BFB299A31DC1CA2000273A25 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		BFB299B11DC1CE9700273A25 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		BFB299B21DC1CE9700273A25 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		BFB299B71DC1CEF500273A25 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		BFB299B81DC1CEF500273A25 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		BFB299BA1DC1CF2600273A25 /* FlashingMarketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashingMarketViewController.h; sourceTree = "<group>"; };
+		BFB299BB1DC1CF2600273A25 /* FlashingMarketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashingMarketViewController.m; sourceTree = "<group>"; };
+		BFB299BD1DC1CF4B00273A25 /* ShoppingCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartViewController.h; sourceTree = "<group>"; };
+		BFB299BE1DC1CF4B00273A25 /* ShoppingCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartViewController.m; sourceTree = "<group>"; };
+		BFB299C01DC1CF6900273A25 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
+		BFB299C11DC1CF6900273A25 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
 		DAF8E1145A0AFF7EA0CDB92C /* Pods-BeeQuick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeQuick.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeeQuick/Pods-BeeQuick.release.xcconfig"; sourceTree = "<group>"; };
 		F9054062EACD365D5ECBAFC5 /* Pods-BeeQuick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeQuick.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeeQuick/Pods-BeeQuick.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				BFB299781DC1AC3400273A25 /* main.m */,
+				BFB299A11DC1C8E400273A25 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -200,8 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				BFB2999C1DC1AFBA00273A25 /* HomePage */,
-				BFB2999E1DC1B03D00273A25 /*  ShoppingCart */,
 				BFB2999D1DC1AFC100273A25 /* FlashingMarket */,
+				BFB2999E1DC1B03D00273A25 /*  ShoppingCart */,
 				BFB2999F1DC1B05200273A25 /* Me */,
 				BFB299A01DC1B06100273A25 /* Others */,
 			);
@@ -218,6 +238,8 @@
 		BFB2999C1DC1AFBA00273A25 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				BFB299B71DC1CEF500273A25 /* HomePageViewController.h */,
+				BFB299B81DC1CEF500273A25 /* HomePageViewController.m */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -225,6 +247,8 @@
 		BFB2999D1DC1AFC100273A25 /* FlashingMarket */ = {
 			isa = PBXGroup;
 			children = (
+				BFB299BA1DC1CF2600273A25 /* FlashingMarketViewController.h */,
+				BFB299BB1DC1CF2600273A25 /* FlashingMarketViewController.m */,
 			);
 			name = FlashingMarket;
 			sourceTree = "<group>";
@@ -232,6 +256,8 @@
 		BFB2999E1DC1B03D00273A25 /*  ShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
+				BFB299BD1DC1CF4B00273A25 /* ShoppingCartViewController.h */,
+				BFB299BE1DC1CF4B00273A25 /* ShoppingCartViewController.m */,
 			);
 			name = " ShoppingCart";
 			sourceTree = "<group>";
@@ -239,6 +265,8 @@
 		BFB2999F1DC1B05200273A25 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				BFB299C01DC1CF6900273A25 /* UserCenterViewController.h */,
+				BFB299C11DC1CF6900273A25 /* UserCenterViewController.m */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -246,6 +274,10 @@
 		BFB299A01DC1B06100273A25 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				BFB299B11DC1CE9700273A25 /* BaseViewController.h */,
+				BFB299B21DC1CE9700273A25 /* BaseViewController.m */,
+				BFB299A21DC1CA2000273A25 /* MainTabBarController.h */,
+				BFB299A31DC1CA2000273A25 /* MainTabBarController.m */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -371,8 +403,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB299BF1DC1CF4B00273A25 /* ShoppingCartViewController.m in Sources */,
+				BFB299BC1DC1CF2600273A25 /* FlashingMarketViewController.m in Sources */,
+				BFB299B91DC1CEF500273A25 /* HomePageViewController.m in Sources */,
+				BFB299B31DC1CE9700273A25 /* BaseViewController.m in Sources */,
+				BFB299C21DC1CF6900273A25 /* UserCenterViewController.m in Sources */,
 				BFB2997C1DC1AC3400273A25 /* AppDelegate.m in Sources */,
 				BFB299791DC1AC3400273A25 /* main.m in Sources */,
+				BFB299A41DC1CA2000273A25 /* MainTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
