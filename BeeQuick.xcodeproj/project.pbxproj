@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		85AEF6C9FF6D50749DB8BD16 /* Pods_BeeQuick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087E84871B9699301E3F1FF7 /* Pods_BeeQuick.framework */; };
+		BF2E9D891DC3483A0065100D /* HomePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E9D881DC3483A0065100D /* HomePageView.m */; };
 		BFB299791DC1AC3400273A25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299781DC1AC3400273A25 /* main.m */; };
 		BFB2997C1DC1AC3400273A25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB2997B1DC1AC3400273A25 /* AppDelegate.m */; };
 		BFB299821DC1AC3400273A25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB299801DC1AC3400273A25 /* Main.storyboard */; };
@@ -19,10 +20,13 @@
 		BFB299BC1DC1CF2600273A25 /* FlashingMarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299BB1DC1CF2600273A25 /* FlashingMarketViewController.m */; };
 		BFB299BF1DC1CF4B00273A25 /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299BE1DC1CF4B00273A25 /* ShoppingCartViewController.m */; };
 		BFB299C21DC1CF6900273A25 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299C11DC1CF6900273A25 /* UserCenterViewController.m */; };
+		BFB299C81DC2EFFB00273A25 /* UISetupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299C71DC2EFFB00273A25 /* UISetupHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		087E84871B9699301E3F1FF7 /* Pods_BeeQuick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeQuick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF2E9D871DC3483A0065100D /* HomePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageView.h; sourceTree = "<group>"; };
+		BF2E9D881DC3483A0065100D /* HomePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageView.m; sourceTree = "<group>"; };
 		BFB299741DC1AC3400273A25 /* BeeQuick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeQuick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB299781DC1AC3400273A25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BFB2997A1DC1AC3400273A25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,6 +48,10 @@
 		BFB299BE1DC1CF4B00273A25 /* ShoppingCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartViewController.m; sourceTree = "<group>"; };
 		BFB299C01DC1CF6900273A25 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
 		BFB299C11DC1CF6900273A25 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
+		BFB299C31DC2E19D00273A25 /* AppMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
+		BFB299C41DC2E75100273A25 /* UtilsMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsMacro.h; sourceTree = "<group>"; };
+		BFB299C61DC2EFFB00273A25 /* UISetupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISetupHelper.h; sourceTree = "<group>"; };
+		BFB299C71DC2EFFB00273A25 /* UISetupHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISetupHelper.m; sourceTree = "<group>"; };
 		DAF8E1145A0AFF7EA0CDB92C /* Pods-BeeQuick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeQuick.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeeQuick/Pods-BeeQuick.release.xcconfig"; sourceTree = "<group>"; };
 		F9054062EACD365D5ECBAFC5 /* Pods-BeeQuick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeQuick.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeeQuick/Pods-BeeQuick.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +146,8 @@
 		BFB2998F1DC1AEE200273A25 /* Macro */ = {
 			isa = PBXGroup;
 			children = (
+				BFB299C31DC2E19D00273A25 /* AppMacro.h */,
+				BFB299C41DC2E75100273A25 /* UtilsMacro.h */,
 			);
 			name = Macro;
 			sourceTree = "<group>";
@@ -152,6 +162,7 @@
 		BFB299911DC1AEF300273A25 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BFB299C51DC2EFC900273A25 /* ViewHelpers */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -205,6 +216,8 @@
 		BFB299981DC1AF2B00273A25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BF2E9D871DC3483A0065100D /* HomePageView.h */,
+				BF2E9D881DC3483A0065100D /* HomePageView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -280,6 +293,15 @@
 				BFB299A31DC1CA2000273A25 /* MainTabBarController.m */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		BFB299C51DC2EFC900273A25 /* ViewHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				BFB299C61DC2EFFB00273A25 /* UISetupHelper.h */,
+				BFB299C71DC2EFFB00273A25 /* UISetupHelper.m */,
+			);
+			name = ViewHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF2E9D891DC3483A0065100D /* HomePageView.m in Sources */,
 				BFB299BF1DC1CF4B00273A25 /* ShoppingCartViewController.m in Sources */,
 				BFB299BC1DC1CF2600273A25 /* FlashingMarketViewController.m in Sources */,
 				BFB299B91DC1CEF500273A25 /* HomePageViewController.m in Sources */,
@@ -411,6 +434,7 @@
 				BFB2997C1DC1AC3400273A25 /* AppDelegate.m in Sources */,
 				BFB299791DC1AC3400273A25 /* main.m in Sources */,
 				BFB299A41DC1CA2000273A25 /* MainTabBarController.m in Sources */,
+				BFB299C81DC2EFFB00273A25 /* UISetupHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +545,8 @@
 			baseConfigurationReference = F9054062EACD365D5ECBAFC5 /* Pods-BeeQuick.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PREFIX_HEADER = /Users/xiaodou/YF/DIY/BeeQuick/BeeQuick/PrefixHeader.pch;
 				INFOPLIST_FILE = BeeQuick/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -534,6 +560,8 @@
 			baseConfigurationReference = DAF8E1145A0AFF7EA0CDB92C /* Pods-BeeQuick.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PREFIX_HEADER = /Users/xiaodou/YF/DIY/BeeQuick/BeeQuick/PrefixHeader.pch;
 				INFOPLIST_FILE = BeeQuick/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
