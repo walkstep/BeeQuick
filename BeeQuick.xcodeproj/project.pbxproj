@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		85AEF6C9FF6D50749DB8BD16 /* Pods_BeeQuick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087E84871B9699301E3F1FF7 /* Pods_BeeQuick.framework */; };
-		BF2E9D891DC3483A0065100D /* HomePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E9D881DC3483A0065100D /* HomePageView.m */; };
+		BF04254C1DC72495001BDB90 /* HomePageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF04254B1DC72495001BDB90 /* HomePageHeaderView.m */; };
+		BF0425521DC73EE5001BDB90 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0425511DC73EE5001BDB90 /* BaseViewModel.m */; };
+		BF0425551DC73F03001BDB90 /* HomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0425541DC73F03001BDB90 /* HomePageViewModel.m */; };
+		BF0425591DC7453F001BDB90 /* HomePageMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0425581DC7453F001BDB90 /* HomePageMenuCell.m */; };
 		BFB299791DC1AC3400273A25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299781DC1AC3400273A25 /* main.m */; };
 		BFB2997C1DC1AC3400273A25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB2997B1DC1AC3400273A25 /* AppDelegate.m */; };
 		BFB299821DC1AC3400273A25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB299801DC1AC3400273A25 /* Main.storyboard */; };
@@ -25,8 +28,14 @@
 
 /* Begin PBXFileReference section */
 		087E84871B9699301E3F1FF7 /* Pods_BeeQuick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeQuick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF2E9D871DC3483A0065100D /* HomePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageView.h; sourceTree = "<group>"; };
-		BF2E9D881DC3483A0065100D /* HomePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageView.m; sourceTree = "<group>"; };
+		BF04254A1DC72495001BDB90 /* HomePageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageHeaderView.h; sourceTree = "<group>"; };
+		BF04254B1DC72495001BDB90 /* HomePageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageHeaderView.m; sourceTree = "<group>"; };
+		BF0425501DC73EE5001BDB90 /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
+		BF0425511DC73EE5001BDB90 /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
+		BF0425531DC73F03001BDB90 /* HomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewModel.h; sourceTree = "<group>"; };
+		BF0425541DC73F03001BDB90 /* HomePageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewModel.m; sourceTree = "<group>"; };
+		BF0425571DC7453F001BDB90 /* HomePageMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageMenuCell.h; sourceTree = "<group>"; };
+		BF0425581DC7453F001BDB90 /* HomePageMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageMenuCell.m; sourceTree = "<group>"; };
 		BFB299741DC1AC3400273A25 /* BeeQuick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeQuick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB299781DC1AC3400273A25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BFB2997A1DC1AC3400273A25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,6 +92,42 @@
 				DAF8E1145A0AFF7EA0CDB92C /* Pods-BeeQuick.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BF04254D1DC73E65001BDB90 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				BF04254A1DC72495001BDB90 /* HomePageHeaderView.h */,
+				BF04254B1DC72495001BDB90 /* HomePageHeaderView.m */,
+			);
+			name = HomePage;
+			sourceTree = "<group>";
+		};
+		BF04254E1DC73E85001BDB90 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				BF0425531DC73F03001BDB90 /* HomePageViewModel.h */,
+				BF0425541DC73F03001BDB90 /* HomePageViewModel.m */,
+			);
+			name = HomePage;
+			sourceTree = "<group>";
+		};
+		BF04254F1DC73EC9001BDB90 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				BF0425501DC73EE5001BDB90 /* BaseViewModel.h */,
+				BF0425511DC73EE5001BDB90 /* BaseViewModel.m */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		BF0425561DC744FE001BDB90 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				BF0425571DC7453F001BDB90 /* HomePageMenuCell.h */,
+				BF0425581DC7453F001BDB90 /* HomePageMenuCell.m */,
+			);
+			name = HomePage;
 			sourceTree = "<group>";
 		};
 		BFB2996B1DC1AC3400273A25 = {
@@ -216,8 +261,7 @@
 		BFB299981DC1AF2B00273A25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF2E9D871DC3483A0065100D /* HomePageView.h */,
-				BF2E9D881DC3483A0065100D /* HomePageView.m */,
+				BF04254D1DC73E65001BDB90 /* HomePage */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -225,6 +269,7 @@
 		BFB299991DC1AF3400273A25 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BF0425561DC744FE001BDB90 /* HomePage */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -244,6 +289,8 @@
 		BFB2999B1DC1AF4600273A25 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BF04254E1DC73E85001BDB90 /* HomePage */,
+				BF04254F1DC73EC9001BDB90 /* Others */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -425,9 +472,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF2E9D891DC3483A0065100D /* HomePageView.m in Sources */,
+				BF0425551DC73F03001BDB90 /* HomePageViewModel.m in Sources */,
 				BFB299BF1DC1CF4B00273A25 /* ShoppingCartViewController.m in Sources */,
 				BFB299BC1DC1CF2600273A25 /* FlashingMarketViewController.m in Sources */,
+				BF0425521DC73EE5001BDB90 /* BaseViewModel.m in Sources */,
+				BF04254C1DC72495001BDB90 /* HomePageHeaderView.m in Sources */,
 				BFB299B91DC1CEF500273A25 /* HomePageViewController.m in Sources */,
 				BFB299B31DC1CE9700273A25 /* BaseViewController.m in Sources */,
 				BFB299C21DC1CF6900273A25 /* UserCenterViewController.m in Sources */,
@@ -435,6 +484,7 @@
 				BFB299791DC1AC3400273A25 /* main.m in Sources */,
 				BFB299A41DC1CA2000273A25 /* MainTabBarController.m in Sources */,
 				BFB299C81DC2EFFB00273A25 /* UISetupHelper.m in Sources */,
+				BF0425591DC7453F001BDB90 /* HomePageMenuCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

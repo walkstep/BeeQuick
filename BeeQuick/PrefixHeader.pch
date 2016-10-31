@@ -17,5 +17,6 @@
 /* 第三方 */
 #import "Masonry.h"
 #import "ReactiveCocoa.h"
+#import "SDCycleScrollView.h"
 
 #endif /* PrefixHeader_pch */

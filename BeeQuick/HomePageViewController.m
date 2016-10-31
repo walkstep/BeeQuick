@@ -8,11 +8,16 @@
 
 #import "HomePageViewController.h"
 
-@interface HomePageViewController ()
+#import "HomePageHeaderView.h"
+
+#define kCellID @"CellID"
+
+@interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 {
     UIButton *leftButton;
     UIButton *rightButton;
+    UICollectionView *myCollectionView;
 }
 
 @end
@@ -55,6 +60,27 @@
     rightButton.frame = CGRectMake(0, 0, 40, 40);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    myCollectionView.backgroundColor = COLOR_WITH_HEX(kColorWhite);
+    myCollectionView.delegate = self;
+    myCollectionView.dataSource = self;
+    
+    // 注册自定义headerView
+    [myCollectionView registerClass:[HomePageHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([HomePageHeaderView class])];
+    
+    // 注册cell
+    [myCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kCellID];
+    
+    [self.view addSubview:myCollectionView];
+    
+    // 约束
+    [myCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
 }
 
 - (void)bindingViewModel {
@@ -65,6 +91,35 @@
     [[rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         NSLog(@"搜索");
     }];
+}
+
+#pragma mark - UICollecitonViewDelegate / DataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 4;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellID forIndexPath:indexPath];
+    
+    cell.contentView.backgroundColor = [UIColor brownColor];
+    
+    return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        HomePageHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomePageHeaderView" forIndexPath:indexPath];
+        return headerView;
+    }
+    return nil;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(SCREEN_WIDTH, 240);
 }
 
 - (void)didReceiveMemoryWarning {
