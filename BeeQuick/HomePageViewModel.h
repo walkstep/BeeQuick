@@ -10,10 +10,14 @@
 
 @interface HomePageViewModel : BaseViewModel
 
+/**
+ *  获取轮播图url
+ */
+- (NSArray *)getFocusUrlArr;
 
-- (void)urlArrayForScrollView;
-
-
+/**
+ *  解析首页数据
+ */
 - (RACSignal *)getHomeData;
 
 

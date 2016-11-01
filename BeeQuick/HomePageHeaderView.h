@@ -10,8 +10,8 @@
 
 @interface HomePageHeaderView : UICollectionReusableView
 
-@property (nonatomic, strong)SDCycleScrollView *cycleScrollView;
-@property (nonatomic, strong)UICollectionView *menuCollectionView;
-@property (nonatomic, strong)NSArray *urlArr;
+@property (nonatomic, strong) SDCycleScrollView *cycleScrollView;
+@property (nonatomic, strong) UICollectionView *menuCollectionView;
+@property (nonatomic, strong) NSArray *urlArr;
 
 @end

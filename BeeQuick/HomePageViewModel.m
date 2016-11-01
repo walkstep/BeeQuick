@@ -20,6 +20,7 @@
     NSMutableArray *homeFocusArr;
     NSMutableArray *homeActivitiesArr;
     NSMutableArray *homeMenuIconsArr;
+    NSMutableArray *focusUrlArr;
 }
 
 @end
@@ -31,14 +32,25 @@
         homeFocusArr = [[NSMutableArray alloc] init];
         homeActivitiesArr = [[NSMutableArray alloc] init];
         homeMenuIconsArr = [[NSMutableArray alloc] init];
+        focusUrlArr = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (void)urlArrayForScrollView {
+/**
+ *  获取轮播图url
+ */
+- (NSArray *)getFocusUrlArr {
+    for (HomeFocusModel *model in homeFocusArr) {
+        [focusUrlArr addObject:model.img];
+    }
     
+    return focusUrlArr;
 }
 
+/**
+ *  解析首页数据
+ */
 - (RACSignal *)getHomeData {
     
     return [[CommonDataManager analyzeDataWithFile:@"HomeFocus"] doNext:^(ResponseModel *response) {

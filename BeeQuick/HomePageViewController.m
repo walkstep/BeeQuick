@@ -13,19 +13,28 @@
 #import "HomeHeadDataModel.h"
 #import "HomeFocusModel.h"
 
+#import "HomePageViewModel.h"
+
+#import "ScrollDetailsViewController.h"
+
 #define kCellID @"CellID"
 
-@interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SDCycleScrollViewDelegate>
 
 {
     UIButton *leftButton;
     UIButton *rightButton;
     UICollectionView *myCollectionView;
+    HomePageViewModel *viewModel;
 }
 
 @end
 
 @implementation HomePageViewController
+
+- (BOOL)hidesBottomBarWhenPushed {
+    return NO;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,28 +44,17 @@
     [self bindingViewModel];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.barTintColor = COLOR_WITH_HEX(kColorNavigationYellow);
+}
+
 - (void)initData {
-    [[CommonDataManager analyzeDataWithFile:@"HomeFocus"] subscribeNext:^(ResponseModel *response) {
-        HomeHeadDataModel *homeHeadDataModel = [HomeHeadDataModel yy_modelWithDictionary:response.data];
-//        NSMutableArray *homeFocusArr = [[NSMutableArray alloc] init];
-//        for (NSDictionary *dic in homeHeadDataModel.focus) {
-//            HomeFocusModel *homeFocusModel = [HomeFocusModel yy_modelWithDictionary:dic];
-//            [homeFocusArr addObject:homeFocusModel];
-//        }
-        
-        for (HomeFocusModel *model in homeHeadDataModel.focus) {
-            NSLog(@"---------------%@", model.url);
-        }
-        
-        NSLog(@"---%@", homeHeadDataModel.focus);
-        NSLog(@"-------%@", homeHeadDataModel.activities);
-        NSLog(@"------------%@", homeHeadDataModel.icons);
-    }];
+    viewModel = [[HomePageViewModel alloc] init];
 }
 
 - (void)initView {
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = COLOR_WITH_HEX(kColorNavigationYellow);
     
     // 导航栏按钮
     leftButton = [UISetupHelper setupButtonWithTitle:@"扫一扫"
@@ -102,6 +100,11 @@
 }
 
 - (void)bindingViewModel {
+    
+    [[viewModel getHomeData] subscribeNext:^(id x) {
+        [myCollectionView reloadData];
+    }];
+    
     [[leftButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         NSLog(@"扫一扫");
     }];
@@ -131,6 +134,8 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         HomePageHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomePageHeaderView" forIndexPath:indexPath];
+        headerView.urlArr = [viewModel getFocusUrlArr];
+        headerView.cycleScrollView.delegate = self;
         return headerView;
     }
     return nil;
@@ -140,9 +145,19 @@
     return CGSizeMake(SCREEN_WIDTH, 240);
 }
 
+
+#pragma mark - SDCycleScrollViewDelegate
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
+    ScrollDetailsViewController *vc = [[ScrollDetailsViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 @end

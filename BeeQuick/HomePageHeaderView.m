@@ -7,7 +7,6 @@
 //
 
 #import "HomePageHeaderView.h"
-
 #import "HomePageMenuCell.h"
 
 @interface HomePageHeaderView ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -22,13 +21,16 @@
     
     if (self) {
         // 轮播图
-        //        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero imageURLStringsGroup:_urlArr];
-        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero imageNamesGroup:@[[UIImage imageNamed:@"scrollImg1"], [UIImage imageNamed:@"scollImg2"]]];
+        _cycleScrollView = [[SDCycleScrollView alloc] initWithFrame:CGRectZero];
         _cycleScrollView.pageDotColor = COLOR_WITH_HEX(kColorWhite);
         _cycleScrollView.currentPageDotColor = COLOR_WITH_HEX(kColorNavigationYellow);
-        _cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
         _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
         _cycleScrollView.autoScrollTimeInterval = 5;
+        
+        // 监听轮播图url数组
+        [RACObserve(self, urlArr) subscribeNext:^(id x) {
+            _cycleScrollView.imageURLStringsGroup = _urlArr;
+        }];
         
         // menu选项
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
