@@ -9,6 +9,9 @@
 #import "HomePageViewController.h"
 
 #import "HomePageHeaderView.h"
+#import "ResponseModel.h"
+#import "HomeHeadDataModel.h"
+#import "HomeFocusModel.h"
 
 #define kCellID @"CellID"
 
@@ -33,7 +36,22 @@
 }
 
 - (void)initData {
-    
+    [[CommonDataManager analyzeDataWithFile:@"HomeFocus"] subscribeNext:^(ResponseModel *response) {
+        HomeHeadDataModel *homeHeadDataModel = [HomeHeadDataModel yy_modelWithDictionary:response.data];
+//        NSMutableArray *homeFocusArr = [[NSMutableArray alloc] init];
+//        for (NSDictionary *dic in homeHeadDataModel.focus) {
+//            HomeFocusModel *homeFocusModel = [HomeFocusModel yy_modelWithDictionary:dic];
+//            [homeFocusArr addObject:homeFocusModel];
+//        }
+        
+        for (HomeFocusModel *model in homeHeadDataModel.focus) {
+            NSLog(@"---------------%@", model.url);
+        }
+        
+        NSLog(@"---%@", homeHeadDataModel.focus);
+        NSLog(@"-------%@", homeHeadDataModel.activities);
+        NSLog(@"------------%@", homeHeadDataModel.icons);
+    }];
 }
 
 - (void)initView {

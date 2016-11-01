@@ -8,6 +8,8 @@
 
 #import "HomePageHeaderView.h"
 
+#import "HomePageMenuCell.h"
+
 @interface HomePageHeaderView ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @end
@@ -32,6 +34,9 @@
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         _menuCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _menuCollectionView.backgroundColor = COLOR_WITH_HEX(kColorWhite);
+        
+        // 注册cell
+        [_menuCollectionView registerClass:[HomePageMenuCell  class] forCellWithReuseIdentifier:NSStringFromClass([HomePageMenuCell class])];
         
         
         [self addSubview:_cycleScrollView];
@@ -64,7 +69,8 @@
     return 4;
 }
 
-//- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    HomePageMenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([HomePageMenuCell class]) forIndexPath:indexPath];
+    return cell;
+}
 @end

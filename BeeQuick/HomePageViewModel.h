@@ -13,4 +13,8 @@
 
 - (void)urlArrayForScrollView;
 
+
+- (RACSignal *)getHomeData;
+
+
 @end

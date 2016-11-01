@@ -18,5 +18,9 @@
 #import "Masonry.h"
 #import "ReactiveCocoa.h"
 #import "SDCycleScrollView.h"
+#import "YYModel.h"
+
+
+#import "CommonDataManager.h"
 
 #endif /* PrefixHeader_pch */
