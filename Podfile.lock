@@ -16,6 +16,11 @@ PODS:
     - AFNetworking/NSURLSession
   - Masonry (0.6.4)
   - MJRefresh (3.1.8)
+  - NJKWebViewProgress (0.2.3):
+    - NJKWebViewProgress/Core (= 0.2.3)
+    - NJKWebViewProgress/ProgressView (= 0.2.3)
+  - NJKWebViewProgress/Core (0.2.3)
+  - NJKWebViewProgress/ProgressView (0.2.3)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -34,6 +39,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.0.0)
   - Masonry (~> 0.6.3)
   - MJRefresh (~> 3.1.8)
+  - NJKWebViewProgress
   - ReactiveCocoa (~> 2.5)
   - SDCycleScrollView (~> 1.61)
   - YYModel (~> 1.0.1)
@@ -42,11 +48,12 @@ SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJRefresh: d226bbe0b1ec398f426ba1dc99319b4e51182e19
+  NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 2aca065f3a5a43fd45b727e3510721681c1e5e13
+PODFILE CHECKSUM: 9798e472099dae2475845957a99ec86534796ddf
 
 COCOAPODS: 1.0.0

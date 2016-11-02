@@ -15,6 +15,15 @@
 
 @implementation AppDelegate
 
+/**
+ *  统一设置导航栏的样式
+ */
+- (void)setNavigationBarAppearance {
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, NSIntegerMin) forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"btn_goback"]];
+    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"btn_goback"]];
+    [[UINavigationBar appearance] setTintColor:COLOR_WITH_HEX(kColorGray)];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -24,6 +33,8 @@
     
     MainTabBarController *mainTBC = [[MainTabBarController alloc] init];
     self.window.rootViewController = mainTBC;
+    
+    [self setNavigationBarAppearance];
     
     return YES;
 }

@@ -19,6 +19,8 @@
 #import "ReactiveCocoa.h"
 #import "SDCycleScrollView.h"
 #import "YYModel.h"
+#import "NJKWebViewProgress.h"
+#import "NJKWebViewProgressView.h"
 
 
 #import "CommonDataManager.h"

@@ -10,4 +10,7 @@
 
 @interface ScrollDetailsViewController : BaseViewController
 
+@property (nonatomic, strong) NSString *requestUrl; // 请求url
+@property (nonatomic, strong) NSString *titleStr;   // 标题
+
 @end

@@ -54,6 +54,8 @@
 }
 
 - (void)initView {
+    self.title = @"首页";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     // 导航栏按钮
@@ -149,6 +151,16 @@
 #pragma mark - SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
     ScrollDetailsViewController *vc = [[ScrollDetailsViewController alloc] init];
+    NSArray *arr = viewModel.homeFocusArr;
+    
+    for (int i = 0; i < arr.count; i++) {
+        if (index == i) {
+            HomeFocusModel *model = arr[i];
+            vc.requestUrl = model.url;
+            vc.titleStr = model.name;
+        }
+    }
+    
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

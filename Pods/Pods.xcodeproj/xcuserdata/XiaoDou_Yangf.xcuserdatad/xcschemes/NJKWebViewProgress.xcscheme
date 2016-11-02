@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '66073D01EC3671B03B0FF38C5AC74348'
-               BlueprintName = 'ReactiveCocoa'
+               BlueprintIdentifier = '33B42E21671AAC905130853EDCADA43B'
+               BlueprintName = 'NJKWebViewProgress'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'ReactiveCocoa.framework'>
+               BuildableName = 'NJKWebViewProgress.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

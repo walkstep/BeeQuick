@@ -29,5 +29,6 @@
 static NSInteger const kColorNavigationYellow = 0xFDD431;
 static NSInteger const kColorFontBlack = 0x212121;
 static NSInteger const kColorWhite = 0xFFFFFF;
+static NSInteger const kColorGray = 0x757575;
 
 #endif /* AppMacro_h */
