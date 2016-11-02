@@ -8,15 +8,29 @@
 
 #import "HomePageMenuCell.h"
 
+@interface HomePageMenuCell ()
+
+{
+    UIButton *button;
+    UILabel *label;
+}
+
+@end
+
 @implementation HomePageMenuCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
+    
+    self.contentView.backgroundColor = COLOR_WITH_HEX(kColorWhite);
+    
     self = [super initWithFrame:frame];
     if (self) {
         /* -----------UI控件---------- */
-        UIButton *button = [[UIButton alloc] init];
+        button = [[UIButton alloc] init];
         
-        UILabel *label = [[UILabel alloc] init];
+        label = [[UILabel alloc] init];
+        [label setFont:[UIFont systemFontOfSize:13.0f]];
+        label.textAlignment = NSTextAlignmentCenter;
         
         [self.contentView addSubview:button];
         [self.contentView addSubview:label];
@@ -35,6 +49,14 @@
         }];
     }
     return self;
+}
+
+- (void)updateCellWithModel:(HomeMenuIconsModel *)model {
+    NSURL *url = [NSURL URLWithString:model.img];
+//    [button sd_setBackgroundImageWithURL:url forState:UIControlStateNormal];
+    [button sd_setImageWithURL:url forState:UIControlStateNormal];
+    [button.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    label.text = model.name;
 }
 
 @end

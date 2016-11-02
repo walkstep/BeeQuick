@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initData];
     [self initView];
 }
 
@@ -31,10 +30,6 @@
     [super viewWillAppear:animated];
     
     [self.navigationController.navigationBar addSubview:progressView];
-}
-
-- (void)initData {
-    
 }
 
 - (void)initView {
@@ -45,42 +40,25 @@
     
     webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     webView.backgroundColor = COLOR_WITH_HEX(kColorWhite);
-    webView.delegate = self;
 
     progressProxy = [[NJKWebViewProgress alloc] init];
-//    progressView = [[NJKWebViewProgressView alloc] initWithFrame:CGRectZero];
+    // 使用Masonry布局会导致进度条不显示
+    progressView = [[NJKWebViewProgressView alloc] initWithFrame:CGRectMake(0, 44, SCREEN_WIDTH, 2)];
     
-    CGRect navBounds = self.navigationController.navigationBar.bounds;
-    CGRect barFrame = CGRectMake(0,
-                                 navBounds.size.height - 2,
-                                 navBounds.size.width,
-                                 2);
-    progressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
-    
-    progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     webView.delegate = progressProxy;
     progressProxy.webViewProxyDelegate = self;
     progressProxy.progressDelegate = self;
     progressView.progress = 0;
     
-    NSURL *url = [NSURL URLWithString:self.requestUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    
-    
     [self.view addSubview:webView];
-//    s[self.view addSubview:progressView];
     
     // 约束
     [webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
-//    [progressView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.and.top.and.right.mas_equalTo(0);
-//        make.height.mas_equalTo(2);
-//    }];
-    
+    NSURL *url = [NSURL URLWithString:self.requestUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
 }
 
@@ -90,22 +68,12 @@
 }
 
 - (void)clickRightBtn {
-    NSLog(@"刷新");
+    [webView reload];
 }
 
 #pragma mark - NJKWebViewProgressDelegate
 - (void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress {
-    NSLog(@"----%f", progress);
     [progressView setProgress:progress animated:YES];
-}
-
-#pragma mark - UIWebViewDelegate
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    //progressView.hidden = NO;
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    //progressView.hidden = YES;
 }
 
 @end

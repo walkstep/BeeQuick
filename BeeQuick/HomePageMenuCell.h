@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeMenuIconsModel.h"
 
 @interface HomePageMenuCell : UICollectionViewCell
+
+- (void)updateCellWithModel:(HomeMenuIconsModel *)model;
 
 @end

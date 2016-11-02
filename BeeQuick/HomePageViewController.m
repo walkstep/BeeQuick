@@ -122,7 +122,8 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 4;
+//    return viewModel.homeMenuIconsArr.count;
+    return 5;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -138,6 +139,7 @@
         HomePageHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomePageHeaderView" forIndexPath:indexPath];
         headerView.urlArr = [viewModel getFocusUrlArr];
         headerView.cycleScrollView.delegate = self;
+        headerView.homePageViewModel = viewModel;
         return headerView;
     }
     return nil;
@@ -151,7 +153,7 @@
 #pragma mark - SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
     ScrollDetailsViewController *vc = [[ScrollDetailsViewController alloc] init];
-    NSArray *arr = viewModel.homeFocusArr;
+    NSArray *arr = [viewModel getHomeFocusArr];
     
     for (int i = 0; i < arr.count; i++) {
         if (index == i) {

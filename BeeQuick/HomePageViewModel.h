@@ -10,9 +10,11 @@
 
 @interface HomePageViewModel : BaseViewModel
 
-@property (nonatomic, strong) NSMutableArray *homeFocusArr;
-@property (nonatomic, strong) NSMutableArray *homeActivitiesArr;
-@property (nonatomic, strong) NSMutableArray *homeMenuIconsArr;   // menu图标url
+- (NSArray *)getHomeFocusArr;
+
+- (NSArray *)getHomeActivitiesArr;
+
+- (NSArray *)getHomeMenuIconsArr;
 
 /**
  *  获取轮播图url
@@ -28,6 +30,5 @@
  *  解析首页数据
  */
 - (RACSignal *)getHomeData;
-
 
 @end

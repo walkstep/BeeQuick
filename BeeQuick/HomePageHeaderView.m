@@ -11,8 +11,12 @@
 
 @interface HomePageHeaderView ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@end
+{
+    UICollectionViewFlowLayout *layout;
+    HomePageViewModel *viewModel;
+}
 
+@end
 
 @implementation HomePageHeaderView
 
@@ -32,9 +36,20 @@
             _cycleScrollView.imageURLStringsGroup = _urlArr;
         }];
         
+        // 监听ViewModel
+        [RACObserve(self, homePageViewModel) subscribeNext:^(id x) {
+            viewModel = _homePageViewModel;
+        }];
+        
         // menu选项
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.itemSize = CGSizeMake(SCREEN_WIDTH/4, 90);
+        layout.minimumInteritemSpacing = 0;
+        layout.minimumLineSpacing = 0;
         _menuCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _menuCollectionView.scrollEnabled = NO;
+        _menuCollectionView.delegate = self;
+        _menuCollectionView.dataSource = self;
         _menuCollectionView.backgroundColor = COLOR_WITH_HEX(kColorWhite);
         
         // 注册cell
@@ -47,13 +62,13 @@
         /* ----------约束---------- */
         [_cycleScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.and.left.and.right.mas_equalTo(0);
-            make.height.mas_equalTo(180);
+            make.height.mas_equalTo(sliderHeight);
         }];
         
         [_menuCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.mas_equalTo(0);
             make.top.mas_equalTo(_cycleScrollView.mas_bottom);
-            make.height.mas_equalTo(30);
+            make.height.mas_equalTo(90);
         }];
 
     }
@@ -68,11 +83,19 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 4;
+    return [[viewModel getHomeMenuIconsArr] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HomePageMenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([HomePageMenuCell class]) forIndexPath:indexPath];
+    HomeMenuIconsModel *homeMenuIconsModel = [[viewModel getHomeMenuIconsArr] objectAtIndex:indexPath.row];
+    
+    [cell updateCellWithModel:homeMenuIconsModel];
     return cell;
 }
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsZero;
+}
+
 @end

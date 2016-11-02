@@ -31,4 +31,7 @@ static NSInteger const kColorFontBlack = 0x212121;
 static NSInteger const kColorWhite = 0xFFFFFF;
 static NSInteger const kColorGray = 0x757575;
 
+// 高度
+#define sliderHeight 150*(SCREEN_WIDTH/375)
+
 #endif /* AppMacro_h */

@@ -21,6 +21,8 @@
 #import "YYModel.h"
 #import "NJKWebViewProgress.h"
 #import "NJKWebViewProgressView.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 
 
 #import "CommonDataManager.h"

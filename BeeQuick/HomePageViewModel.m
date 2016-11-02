@@ -17,6 +17,9 @@
 @interface HomePageViewModel ()
 
 {
+    NSMutableArray *homeFocusArr;
+    NSMutableArray *homeActivitiesArr;
+    NSMutableArray *homeMenuIconsArr;
     NSMutableArray *focusUrlArr;        // 轮播图url
     NSMutableArray *focusDetailsUrlArr; // 轮播图详细url
     
@@ -28,20 +31,32 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _homeFocusArr = [[NSMutableArray alloc] init];
-        _homeActivitiesArr = [[NSMutableArray alloc] init];
-        _homeMenuIconsArr = [[NSMutableArray alloc] init];
+        homeFocusArr = [[NSMutableArray alloc] init];
+        homeActivitiesArr = [[NSMutableArray alloc] init];
+        homeMenuIconsArr = [[NSMutableArray alloc] init];
         focusUrlArr = [[NSMutableArray alloc] init];
         focusDetailsUrlArr = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
+- (NSArray *)getHomeFocusArr {
+    return homeFocusArr;
+}
+
+- (NSArray *)getHomeActivitiesArr {
+    return homeActivitiesArr;
+}
+
+- (NSArray *)getHomeMenuIconsArr {
+    return homeMenuIconsArr;
+}
+
 /**
  *  获取轮播图url
  */
 - (NSArray *)getFocusUrlArr {
-    for (HomeFocusModel *model in _homeFocusArr) {
+    for (HomeFocusModel *model in homeFocusArr) {
         [focusUrlArr addObject:model.img];
     }
     
@@ -52,7 +67,7 @@
  *  获取轮播图详情页面url
  */
 - (NSArray *)getFocusDetailUrlArr {
-    for (HomeFocusModel *model in _homeFocusArr) {
+    for (HomeFocusModel *model in homeFocusArr) {
         [focusDetailsUrlArr addObject:model.url];
     }
     return focusDetailsUrlArr;
@@ -67,15 +82,15 @@
         HomeHeadDataModel *homeHeadDataModel = [HomeHeadDataModel yy_modelWithDictionary:response.data];
         
         for (HomeFocusModel *model in homeHeadDataModel.focus) {
-            [_homeFocusArr addObject:model];
+            [homeFocusArr addObject:model];
         }
         
         for (HomeActivitiesModel *model in homeHeadDataModel.activities) {
-            [_homeActivitiesArr addObject:model];
+            [homeActivitiesArr addObject:model];
         }
         
         for (HomeMenuIconsModel *model in homeHeadDataModel.icons) {
-            [_homeMenuIconsArr addObject:model];
+            [homeMenuIconsArr addObject:model];
         }
     }];
 }
