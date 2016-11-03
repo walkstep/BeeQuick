@@ -14,6 +14,8 @@
 {
     UICollectionViewFlowLayout *layout;
     HomePageViewModel *viewModel;
+    CGFloat collectionHeight;          // menuCollectionView高度
+    NSArray *menuIconsArr;
 }
 
 @end
@@ -39,6 +41,11 @@
         // 监听ViewModel
         [RACObserve(self, homePageViewModel) subscribeNext:^(id x) {
             viewModel = _homePageViewModel;
+            
+            menuIconsArr = [viewModel getHomeMenuIconsArr];
+            
+            // 通过判断返回的icons数目来确定collection的高度
+            collectionHeight = menuIconsArr.count > 4 ? 180.0f : 90.0f;
         }];
         
         // menu选项
@@ -68,7 +75,7 @@
         [_menuCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.mas_equalTo(0);
             make.top.mas_equalTo(_cycleScrollView.mas_bottom);
-            make.height.mas_equalTo(90);
+            make.height.mas_equalTo(collectionHeight);
         }];
 
     }
@@ -83,7 +90,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [[viewModel getHomeMenuIconsArr] count];
+    return menuIconsArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,6 +103,18 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsZero;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    HomeMenuIconsModel *iconsModel = menuIconsArr[indexPath.row];
+    
+    // 在UIView中没有导航栏，无法直接跳转，所以需要使用一个代理
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectMenu:)]) {
+        [self.delegate didSelectMenu:iconsModel];
+    }
+    
+    
 }
 
 @end

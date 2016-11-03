@@ -7,6 +7,8 @@
 //
 
 #import "BaseViewModel.h"
+#import "HomeActivitiesModel.h"
+#import "HomeHotSaleModel.h"
 
 @interface HomePageViewModel : BaseViewModel
 
@@ -15,6 +17,16 @@
 - (NSArray *)getHomeActivitiesArr;
 
 - (NSArray *)getHomeMenuIconsArr;
+
+- (NSArray *)getHomeHotSaleArr;
+
+- (NSInteger)numberOfHotSaleSections;
+
+- (NSInteger)numberOfHotSaleItems:(NSInteger)section;
+
+- (HomeActivitiesModel *)activityAtIndexPath:(NSIndexPath *)indexPath;
+
+- (HomeHotSaleModel *)hotSaleAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
  *  获取轮播图url

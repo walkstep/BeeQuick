@@ -9,17 +9,19 @@
 #import "HomePageViewController.h"
 
 #import "HomePageHeaderView.h"
+#import "HomePageActivityCell.h"
+
 #import "ResponseModel.h"
 #import "HomeHeadDataModel.h"
 #import "HomeFocusModel.h"
-
 #import "HomePageViewModel.h"
 
 #import "ScrollDetailsViewController.h"
 
 #define kCellID @"CellID"
+#define kViewID @"ViewID"
 
-@interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SDCycleScrollViewDelegate>
+@interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SDCycleScrollViewDelegate, MenuDelegate>
 
 {
     UIButton *leftButton;
@@ -82,12 +84,16 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-    myCollectionView.backgroundColor = COLOR_WITH_HEX(kColorWhite);
+    myCollectionView.backgroundColor = COLOR_WITH_HEX(kColorBackgroundGray);
     myCollectionView.delegate = self;
     myCollectionView.dataSource = self;
     
     // 注册自定义headerView
     [myCollectionView registerClass:[HomePageHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([HomePageHeaderView class])];
+    
+    [myCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([UICollectionReusableView class])];
+    
+    [myCollectionView registerClass:[HomePageActivityCell class] forCellWithReuseIdentifier:NSStringFromClass([HomePageActivityCell class])];
     
     // 注册cell
     [myCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kCellID];
@@ -118,51 +124,125 @@
 
 #pragma mark - UICollecitonViewDelegate / DataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return [viewModel numberOfHotSaleSections];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//    return viewModel.homeMenuIconsArr.count;
-    return 5;
+    return [viewModel numberOfHotSaleItems:section];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellID forIndexPath:indexPath];
-    
-    cell.contentView.backgroundColor = [UIColor brownColor];
-    
-    return cell;
+    if (indexPath.section == 0) {
+        HomePageActivityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([HomePageActivityCell class]) forIndexPath:indexPath];
+        
+        HomeActivitiesModel *model = [viewModel activityAtIndexPath:indexPath];
+        [cell updateCellWithModel:model];
+        
+        return cell;
+    } else if (indexPath.section == 1) {
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellID forIndexPath:indexPath];
+        cell.contentView.backgroundColor = [UIColor brownColor];
+        return cell;
+    }
+    return nil;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        HomePageHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomePageHeaderView" forIndexPath:indexPath];
-        headerView.urlArr = [viewModel getFocusUrlArr];
-        headerView.cycleScrollView.delegate = self;
-        headerView.homePageViewModel = viewModel;
-        return headerView;
+    
+    if (indexPath.section == 0) {
+        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+            HomePageHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomePageHeaderView" forIndexPath:indexPath];
+            headerView.urlArr = [viewModel getFocusUrlArr];
+            headerView.cycleScrollView.delegate = self;
+            headerView.delegate = self;                 // 点击menu时的代理
+            headerView.homePageViewModel = viewModel;
+            return headerView;
+        }
+    } else {
+        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+            UICollectionReusableView *collectionReusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([UICollectionReusableView class]) forIndexPath:indexPath];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+            [label setFont:[UIFont systemFontOfSize:13.0f]];
+            [label setTextColor:COLOR_WITH_HEX(kColorGray)];
+            label.text = @"新鲜热卖";
+            [collectionReusableView addSubview:label];
+            
+            [label mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(10);
+                make.centerY.mas_equalTo(0);
+                make.right.mas_equalTo(-10);
+                make.height.mas_equalTo(30);
+            }];
+            
+            return collectionReusableView;
+        }
     }
     return nil;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(SCREEN_WIDTH, 240);
+    
+    if (section == 0) {
+        CGFloat menuCollectionHeight = [[viewModel getHomeMenuIconsArr] count] > 4 ? 180.0f : 90.0f;
+        return CGSizeMake(SCREEN_WIDTH, menuCollectionHeight + sliderHeight);
+    } else {
+        return CGSizeMake(SCREEN_WIDTH, 30.0f);
+    }
 }
 
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return CGSizeMake(SCREEN_WIDTH - 20, 150);
+    } else {
+        return CGSizeMake((SCREEN_WIDTH - 30) / 2, 100);
+    }
+    
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    if (section == 0) {
+        return 0;
+    } else {
+        return 10.0f;
+    }
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 10.0f;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    cell.transform = CGAffineTransformMakeTranslation(0, 80);
+    [UIView animateWithDuration:1.0 animations:^{
+        cell.transform = CGAffineTransformIdentity;
+    }];
+}
 
 #pragma mark - SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
     ScrollDetailsViewController *vc = [[ScrollDetailsViewController alloc] init];
-    NSArray *arr = [viewModel getHomeFocusArr];
+    HomeFocusModel *model = [[viewModel getFocusUrlArr] objectAtIndex:index];
+    vc.requestUrl = model.url;
+    vc.titleStr = model.name;
     
-    for (int i = 0; i < arr.count; i++) {
-        if (index == i) {
-            HomeFocusModel *model = arr[i];
-            vc.requestUrl = model.url;
-            vc.titleStr = model.name;
-        }
-    }
-    
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - MenuDelegate
+- (void)didSelectMenu:(HomeMenuIconsModel *)model {
+    ScrollDetailsViewController *vc = [[ScrollDetailsViewController alloc] init];
+    vc.titleStr = model.name;
+    vc.requestUrl = model.customURL;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -35,6 +35,9 @@
 		BF0425B41DC867CD001BDB90 /* HomeActivitiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0425B31DC867CD001BDB90 /* HomeActivitiesModel.m */; };
 		BF0425B71DC867ED001BDB90 /* HomeHeadDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0425B61DC867ED001BDB90 /* HomeHeadDataModel.m */; };
 		BF0425BD1DC86FFA001BDB90 /* HomeMenuIconsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0425BC1DC86FFA001BDB90 /* HomeMenuIconsModel.m */; };
+		BF28F6CE1DCB269E0071AA64 /* HomePageHotSaleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF28F6CD1DCB269E0071AA64 /* HomePageHotSaleCell.m */; };
+		BF2C2F501DCAD7FD00BD4514 /* HomePageActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2C2F4F1DCAD7FD00BD4514 /* HomePageActivityCell.m */; };
+		BF2C2F531DCAECCC00BD4514 /* HomeHotSaleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2C2F521DCAECCC00BD4514 /* HomeHotSaleModel.m */; };
 		BF2E8C0A1DC88C7000222554 /* ScrollDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2E8C091DC88C7000222554 /* ScrollDetailsViewController.m */; };
 		BFB299791DC1AC3400273A25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB299781DC1AC3400273A25 /* main.m */; };
 		BFB2997C1DC1AC3400273A25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB2997B1DC1AC3400273A25 /* AppDelegate.m */; };
@@ -89,6 +92,12 @@
 		BF0425B61DC867ED001BDB90 /* HomeHeadDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeadDataModel.m; sourceTree = "<group>"; };
 		BF0425BB1DC86FFA001BDB90 /* HomeMenuIconsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMenuIconsModel.h; sourceTree = "<group>"; };
 		BF0425BC1DC86FFA001BDB90 /* HomeMenuIconsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMenuIconsModel.m; sourceTree = "<group>"; };
+		BF28F6CC1DCB269E0071AA64 /* HomePageHotSaleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageHotSaleCell.h; sourceTree = "<group>"; };
+		BF28F6CD1DCB269E0071AA64 /* HomePageHotSaleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageHotSaleCell.m; sourceTree = "<group>"; };
+		BF2C2F4E1DCAD7FD00BD4514 /* HomePageActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageActivityCell.h; sourceTree = "<group>"; };
+		BF2C2F4F1DCAD7FD00BD4514 /* HomePageActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageActivityCell.m; sourceTree = "<group>"; };
+		BF2C2F511DCAECCC00BD4514 /* HomeHotSaleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHotSaleModel.h; sourceTree = "<group>"; };
+		BF2C2F521DCAECCC00BD4514 /* HomeHotSaleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHotSaleModel.m; sourceTree = "<group>"; };
 		BF2E8C081DC88C7000222554 /* ScrollDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollDetailsViewController.h; sourceTree = "<group>"; };
 		BF2E8C091DC88C7000222554 /* ScrollDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollDetailsViewController.m; sourceTree = "<group>"; };
 		BFB299741DC1AC3400273A25 /* BeeQuick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeQuick.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +190,10 @@
 			children = (
 				BF0425571DC7453F001BDB90 /* HomePageMenuCell.h */,
 				BF0425581DC7453F001BDB90 /* HomePageMenuCell.m */,
+				BF2C2F4E1DCAD7FD00BD4514 /* HomePageActivityCell.h */,
+				BF2C2F4F1DCAD7FD00BD4514 /* HomePageActivityCell.m */,
+				BF28F6CC1DCB269E0071AA64 /* HomePageHotSaleCell.h */,
+				BF28F6CD1DCB269E0071AA64 /* HomePageHotSaleCell.m */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -335,6 +348,8 @@
 				BF0425B01DC867A4001BDB90 /* HomeFocusModel.m */,
 				BF0425BB1DC86FFA001BDB90 /* HomeMenuIconsModel.h */,
 				BF0425BC1DC86FFA001BDB90 /* HomeMenuIconsModel.m */,
+				BF2C2F511DCAECCC00BD4514 /* HomeHotSaleModel.h */,
+				BF2C2F521DCAECCC00BD4514 /* HomeHotSaleModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -590,15 +605,18 @@
 				BF2E8C0A1DC88C7000222554 /* ScrollDetailsViewController.m in Sources */,
 				BFB299BF1DC1CF4B00273A25 /* ShoppingCartViewController.m in Sources */,
 				BF0425B11DC867A4001BDB90 /* HomeFocusModel.m in Sources */,
+				BF2C2F531DCAECCC00BD4514 /* HomeHotSaleModel.m in Sources */,
 				BFB299BC1DC1CF2600273A25 /* FlashingMarketViewController.m in Sources */,
 				BF0425521DC73EE5001BDB90 /* BaseViewModel.m in Sources */,
 				BF0425A51DC84366001BDB90 /* CommonDataManager.m in Sources */,
+				BF2C2F501DCAD7FD00BD4514 /* HomePageActivityCell.m in Sources */,
 				BF04254C1DC72495001BDB90 /* HomePageHeaderView.m in Sources */,
 				BFB299B91DC1CEF500273A25 /* HomePageViewController.m in Sources */,
 				BF0425B41DC867CD001BDB90 /* HomeActivitiesModel.m in Sources */,
 				BFB299B31DC1CE9700273A25 /* BaseViewController.m in Sources */,
 				BFB299C21DC1CF6900273A25 /* UserCenterViewController.m in Sources */,
 				BFB2997C1DC1AC3400273A25 /* AppDelegate.m in Sources */,
+				BF28F6CE1DCB269E0071AA64 /* HomePageHotSaleCell.m in Sources */,
 				BFB299791DC1AC3400273A25 /* main.m in Sources */,
 				BFB299A41DC1CA2000273A25 /* MainTabBarController.m in Sources */,
 				BFB299C81DC2EFFB00273A25 /* UISetupHelper.m in Sources */,

@@ -13,16 +13,16 @@
 #import "HomeFocusModel.h"
 #import "HomeActivitiesModel.h"
 #import "HomeMenuIconsModel.h"
+#import "HomeHotSaleModel.h"
 
 @interface HomePageViewModel ()
 
 {
-    NSMutableArray *homeFocusArr;
-    NSMutableArray *homeActivitiesArr;
-    NSMutableArray *homeMenuIconsArr;
-    NSMutableArray *focusUrlArr;        // 轮播图url
-    NSMutableArray *focusDetailsUrlArr; // 轮播图详细url
-    
+    NSMutableArray *homeFocusArr;           // 轮播图数据
+    NSMutableArray *homeActivitiesArr;      // 活动数据
+    NSMutableArray *homeMenuIconsArr;       // menu数据
+    NSMutableArray *homeHotSaleArr;         // 热卖数据
+    NSArray *saleData;
 }
 
 @end
@@ -34,8 +34,7 @@
         homeFocusArr = [[NSMutableArray alloc] init];
         homeActivitiesArr = [[NSMutableArray alloc] init];
         homeMenuIconsArr = [[NSMutableArray alloc] init];
-        focusUrlArr = [[NSMutableArray alloc] init];
-        focusDetailsUrlArr = [[NSMutableArray alloc] init];
+        homeHotSaleArr = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -52,10 +51,33 @@
     return homeMenuIconsArr;
 }
 
+- (NSArray *)getHomeHotSaleArr {
+    return homeHotSaleArr;
+}
+
+- (NSInteger)numberOfHotSaleSections {
+    return saleData.count;
+}
+
+- (NSInteger)numberOfHotSaleItems:(NSInteger)section {
+    NSArray *arr = [saleData objectAtIndex:section];
+    return arr.count;
+}
+
+- (HomeActivitiesModel *)activityAtIndexPath:(NSIndexPath *)indexPath {
+    return [homeActivitiesArr objectAtIndex:indexPath.row];
+}
+
+- (HomeHotSaleModel *)hotSaleAtIndexPath:(NSIndexPath *)indexPath {
+    return [homeHotSaleArr objectAtIndex:indexPath.row];
+}
+
 /**
  *  获取轮播图url
  */
 - (NSArray *)getFocusUrlArr {
+    
+    NSMutableArray *focusUrlArr = [[NSMutableArray alloc] init];
     for (HomeFocusModel *model in homeFocusArr) {
         [focusUrlArr addObject:model.img];
     }
@@ -67,6 +89,7 @@
  *  获取轮播图详情页面url
  */
 - (NSArray *)getFocusDetailUrlArr {
+    NSMutableArray *focusDetailsUrlArr = [[NSMutableArray alloc] init];
     for (HomeFocusModel *model in homeFocusArr) {
         [focusDetailsUrlArr addObject:model.url];
     }
@@ -92,6 +115,12 @@
         for (HomeMenuIconsModel *model in homeHeadDataModel.icons) {
             [homeMenuIconsArr addObject:model];
         }
+        
+        for (HomeHotSaleModel *model in homeHeadDataModel.hot) {
+            [homeHotSaleArr addObject:model];
+        }
+        
+        saleData = @[homeActivitiesArr, homeHotSaleArr];
     }];
 }
 

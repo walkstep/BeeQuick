@@ -76,4 +76,10 @@
     [progressView setProgress:progress animated:YES];
 }
 
+#pragma mark - UIWebViewDelegate
+// 防止页面加载出错时进度条一直显示
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    progressView.hidden = YES;
+}
+
 @end

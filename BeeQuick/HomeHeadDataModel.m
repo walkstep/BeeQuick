@@ -10,13 +10,15 @@
 #import "HomeActivitiesModel.h"
 #import "HomeFocusModel.h"
 #import "HomeMenuIconsModel.h"
+#import "HomeHotSaleModel.h"
 
 @implementation HomeHeadDataModel
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{@"activities" : [HomeActivitiesModel class],
              @"focus" : [HomeFocusModel class],
-             @"icons" : [HomeMenuIconsModel class]};
+             @"icons" : [HomeMenuIconsModel class],
+             @"hot" : [HomeHotSaleModel class]};
 }
 
 @end

@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSArray *activities;
 @property (nonatomic, strong) NSArray *focus;
 @property (nonatomic, strong) NSArray *icons;
+@property (nonatomic, strong) NSArray *hot;
 
 @end

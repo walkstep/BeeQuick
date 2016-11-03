@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "HomePageViewModel.h"
+#import "HomeMenuIconsModel.h"
+
+@protocol MenuDelegate <NSObject>
+
+- (void)didSelectMenu:(HomeMenuIconsModel *)model;
+
+@end
 
 @interface HomePageHeaderView : UICollectionReusableView
 
@@ -15,5 +22,7 @@
 @property (nonatomic, strong) UICollectionView *menuCollectionView;
 @property (nonatomic, strong) NSArray *urlArr;
 @property (nonatomic, strong) HomePageViewModel *homePageViewModel;
+@property (nonatomic, strong) RACSubject *headerViewSubject;
+@property (nonatomic, weak) id<MenuDelegate> delegate;
 
 @end

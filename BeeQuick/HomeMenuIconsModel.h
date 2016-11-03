@@ -10,7 +10,7 @@
 
 @interface HomeMenuIconsModel : NSObject
 
-@property (nonatomic, strong) NSString *customUrl;
+@property (nonatomic, strong) NSString *customURL;
 @property (nonatomic, strong) NSDictionary *ext_params;
 @property (nonatomic, strong) NSString *hide_cart;
 @property (nonatomic, strong) NSString *id;

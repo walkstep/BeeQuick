@@ -28,6 +28,9 @@
         /* -----------UI控件---------- */
         button = [[UIButton alloc] init];
         
+        // 设置这个属性很重要，否则点击cell就会响应button的点击事件
+        button.userInteractionEnabled = NO;
+        
         label = [[UILabel alloc] init];
         [label setFont:[UIFont systemFontOfSize:13.0f]];
         label.textAlignment = NSTextAlignmentCenter;
@@ -53,7 +56,6 @@
 
 - (void)updateCellWithModel:(HomeMenuIconsModel *)model {
     NSURL *url = [NSURL URLWithString:model.img];
-//    [button sd_setBackgroundImageWithURL:url forState:UIControlStateNormal];
     [button sd_setImageWithURL:url forState:UIControlStateNormal];
     [button.imageView setContentMode:UIViewContentModeScaleAspectFit];
     label.text = model.name;
