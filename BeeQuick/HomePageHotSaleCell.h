@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "HomeHotSaleModel.h"
+
 @interface HomePageHotSaleCell : UICollectionViewCell
+
+- (void)updateCellWithModel:(HomeHotSaleModel *)model;
 
 @end

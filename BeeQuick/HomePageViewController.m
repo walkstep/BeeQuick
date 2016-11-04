@@ -10,16 +10,15 @@
 
 #import "HomePageHeaderView.h"
 #import "HomePageActivityCell.h"
+#import "HomePageHotSaleCell.h"
 
 #import "ResponseModel.h"
 #import "HomeHeadDataModel.h"
 #import "HomeFocusModel.h"
 #import "HomePageViewModel.h"
+#import "HomeHotSaleModel.h"
 
 #import "ScrollDetailsViewController.h"
-
-#define kCellID @"CellID"
-#define kViewID @"ViewID"
 
 @interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SDCycleScrollViewDelegate, MenuDelegate>
 
@@ -97,10 +96,8 @@
     
     [myCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([UICollectionReusableView class])];
     
-    [myCollectionView registerClass:[HomePageActivityCell class] forCellWithReuseIdentifier:NSStringFromClass([HomePageActivityCell class])];
-    
     // 注册cell
-    [myCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kCellID];
+    [myCollectionView registerClass:[HomePageActivityCell class] forCellWithReuseIdentifier:NSStringFromClass([HomePageActivityCell class])];
     
     [self.view addSubview:myCollectionView];
     
@@ -128,11 +125,11 @@
 
 #pragma mark - UICollecitonViewDelegate / DataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return [viewModel numberOfHotSaleSections];
+    return [viewModel numberOfSaleDataSections];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [viewModel numberOfHotSaleItems:section];
+    return [viewModel numberOfSaleDataItems:section];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -144,8 +141,15 @@
         
         return cell;
     } else if (indexPath.section == 1) {
-        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellID forIndexPath:indexPath];
-        cell.contentView.backgroundColor = [UIColor brownColor];
+        
+        // 防止cell复用数据混乱
+        NSString *cellID = [NSString stringWithFormat:@"cellID%ld%ld", indexPath.section, indexPath.row];
+        [myCollectionView registerClass:[HomePageHotSaleCell class] forCellWithReuseIdentifier:cellID];
+        HomePageHotSaleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+        
+        HomeHotSaleModel *model = [viewModel hotSaleAtIndexPath:indexPath];
+        [cell updateCellWithModel:model];
+        
         return cell;
     }
     return nil;
@@ -202,7 +206,7 @@
     if (indexPath.section == 0) {
         return CGSizeMake(SCREEN_WIDTH - 20, 150);
     } else {
-        return CGSizeMake((SCREEN_WIDTH - 30) / 2, 100);
+        return CGSizeMake((SCREEN_WIDTH - 28) / 2, 300);
     }
     
 }
@@ -211,12 +215,12 @@
     if (section == 0) {
         return 0;
     } else {
-        return 10.0f;
+        return 8.0f;
     }
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 10.0f;
+    return 8.0f;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

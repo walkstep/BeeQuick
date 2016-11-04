@@ -55,11 +55,11 @@
     return homeHotSaleArr;
 }
 
-- (NSInteger)numberOfHotSaleSections {
+- (NSInteger)numberOfSaleDataSections {
     return saleData.count;
 }
 
-- (NSInteger)numberOfHotSaleItems:(NSInteger)section {
+- (NSInteger)numberOfSaleDataItems:(NSInteger)section {
     NSArray *arr = [saleData objectAtIndex:section];
     return arr.count;
 }

@@ -29,16 +29,22 @@
     self = [super initWithFrame:frame];
     
     if (self) {
+        self.contentView.backgroundColor = COLOR_WITH_HEX(kColorWhite);
+        
         /* ----------------创建UI----------------- */
         imgView = [[UIImageView alloc] initWithFrame:CGRectZero];
         
         nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        [nameLabel setFont:[UIFont systemFontOfSize:14.0f]];
         
         isSelectButton = [[UIButton alloc] initWithFrame:CGRectZero];
         
         isPresentButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        isPresentButton.hidden = YES;
         
         specificsLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        [specificsLabel setFont:[UIFont systemFontOfSize:12.0f]];
+        [specificsLabel setTextColor:[UIColor grayColor]];
         
         currentPriceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         
@@ -59,7 +65,7 @@
         
         [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.and.left.and.right.mas_equalTo(0);
-            make.height.mas_equalTo(100);
+            make.height.mas_equalTo(180);
         }];
         
         [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -71,14 +77,13 @@
         [isSelectButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(nameLabel.mas_bottom).mas_equalTo(5);
             make.left.mas_equalTo(nameLabel.mas_left);
-            make.size.mas_equalTo(CGSizeMake(30, 15));
+            make.size.mas_equalTo(CGSizeMake(35, 15));
         }];
         
         [isPresentButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(isSelectButton.mas_top);
             make.left.mas_equalTo(isSelectButton.mas_right).mas_equalTo(5);
-            make.size.mas_equalTo(isSelectButton.mas_height);
-            make.size.mas_equalTo(isSelectButton.mas_width);
+            make.size.mas_equalTo(CGSizeMake(50, 15));
         }];
         
         [specificsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -90,13 +95,11 @@
         [currentPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(specificsLabel.mas_bottom).mas_equalTo(5);
             make.left.mas_equalTo(nameLabel.mas_left);
-            make.right.mas_equalTo(nameLabel.mas_right);
         }];
         
         [originalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(currentPriceLabel.mas_top);
             make.left.mas_equalTo(currentPriceLabel.mas_right).mas_equalTo(5);
-            make.width.mas_equalTo(50);
         }];
         
         [addCartButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -105,6 +108,46 @@
         }];
     }
     return self;
+}
+
+- (void)updateCellWithModel:(HomeHotSaleModel *)model {
+    [imgView sd_setImageWithURL:[NSURL URLWithString:model.img]];
+    nameLabel.text = model.name;
+    
+    [isSelectButton setTitle:@"精 选" forState:UIControlStateNormal];
+    [isSelectButton.titleLabel setFont:[UIFont systemFontOfSize:9.0f]];
+    [isSelectButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    isSelectButton.layer.cornerRadius = 7.5f;
+    isSelectButton.layer.borderWidth = 1.0f;
+    isSelectButton.layer.borderColor = [UIColor redColor].CGColor;
+    isSelectButton.clipsToBounds = YES;
+    
+    if (![model.pm_desc isEqualToString:@""]) {
+        isPresentButton.hidden = NO;
+        [isPresentButton setTitle:model.pm_desc forState:UIControlStateNormal];
+        [isPresentButton.titleLabel setFont:[UIFont systemFontOfSize:9.0f]];
+        [isPresentButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [isPresentButton setBackgroundColor:[UIColor redColor]];
+        isPresentButton.layer.cornerRadius = 7.5f;
+        isPresentButton.clipsToBounds = YES;
+    }
+    
+    specificsLabel.text = model.specifics;
+    
+    currentPriceLabel.text = [NSString stringWithFormat:@"￥%@", model.partner_price];
+    [currentPriceLabel setFont:[UIFont systemFontOfSize:13.5f]];
+    [currentPriceLabel setTextColor:[UIColor redColor]];
+    
+    originalPriceLabel.text = model.market_price;
+    [originalPriceLabel setFont:[UIFont systemFontOfSize:13.5f]];
+    [originalPriceLabel setTextColor:[UIColor grayColor]];
+    
+    //中划线
+    NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
+    NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:originalPriceLabel.text attributes:attribtDic];
+    
+    // 赋值
+    originalPriceLabel.attributedText = attribtStr;
 }
 
 @end

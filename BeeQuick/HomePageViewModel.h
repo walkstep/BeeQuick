@@ -20,9 +20,9 @@
 
 - (NSArray *)getHomeHotSaleArr;
 
-- (NSInteger)numberOfHotSaleSections;
+- (NSInteger)numberOfSaleDataSections;
 
-- (NSInteger)numberOfHotSaleItems:(NSInteger)section;
+- (NSInteger)numberOfSaleDataItems:(NSInteger)section;
 
 - (HomeActivitiesModel *)activityAtIndexPath:(NSIndexPath *)indexPath;
 
