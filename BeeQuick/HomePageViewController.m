@@ -28,6 +28,8 @@
     UIButton *rightButton;
     UICollectionView *myCollectionView;
     HomePageViewModel *viewModel;
+    BOOL isAnimation;
+    CGFloat lastContentOffsetY;         //记录滑动的位置
 }
 
 @end
@@ -53,6 +55,8 @@
 
 - (void)initData {
     viewModel = [[HomePageViewModel alloc] init];
+    isAnimation = NO;
+    lastContentOffsetY = 0;
 }
 
 - (void)initView {
@@ -221,10 +225,12 @@
 
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    cell.transform = CGAffineTransformMakeTranslation(0, 80);
-    [UIView animateWithDuration:1.0 animations:^{
-        cell.transform = CGAffineTransformIdentity;
-    }];
+    if (isAnimation) {
+        cell.transform = CGAffineTransformMakeTranslation(0, 80);
+        [UIView animateWithDuration:1.0 animations:^{
+            cell.transform = CGAffineTransformIdentity;
+        }];
+    }
 }
 
 #pragma mark - SDCycleScrollViewDelegate
@@ -245,6 +251,18 @@
     vc.requestUrl = model.customURL;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - ScrollView Method
+// 下滑才加动画，上滑不加动画
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y > lastContentOffsetY) {
+        isAnimation = YES;
+    } else {
+        isAnimation = NO;
+    }
+    
+    lastContentOffsetY = scrollView.contentOffset.y;
 }
 
 - (void)didReceiveMemoryWarning {
