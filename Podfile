@@ -8,4 +8,7 @@ pod 'ReactiveCocoa', '~> 2.5'
 pod 'SDCycleScrollView', '~> 1.61'
 pod 'YYModel', '~> 1.0.1'
 pod 'NJKWebViewProgress'
+pod 'UITableView+FDTemplateLayoutCell', '~> 1.4'
+pod 'SIAlertView'
+pod 'KVNProgress', '~> 2.2.1'
 end

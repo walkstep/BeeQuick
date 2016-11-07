@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KVNProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,6 +49,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SIAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UITableView+FDTemplateLayoutCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,12 +67,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>057F369C5791B9F1793726FE13502F82</key>
+		<key>0186EE20AB4D310515B8041966DB7AEB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0ED1A276004543BF7C2CE3EC3621AB76</key>
+		<key>0DC4A1F730AF3B58F8D5A760093EFEAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +92,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>66073D01EC3671B03B0FF38C5AC74348</key>
+		<key>67478728815387782DA74EE0331AC085</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8D74448CA41A06C5DEA5D0DD8EEC4F02</key>
+		<key>6E0CA8E24738269194E25BC42F33B4B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>75F8EDB546C492E5F1FEEE64091B61A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8EE1D8FAFF55126018DED16A23800F95</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC911140891B67D0087F54F503E31FD3</key>
+		<key>C75AF9FA305F1077970BAD1A09E632FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F521CB01F6A420D254D33E8D85375F8C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

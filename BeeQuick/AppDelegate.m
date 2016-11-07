@@ -25,6 +25,14 @@
     [[UINavigationBar appearance] setTintColor:COLOR_WITH_HEX(kColorGray)];
 }
 
+/**
+ *  统一设置提示栏
+ */
+- (void)setSIAlertViewAppearence {
+    [[SIAlertView appearance] setDefaultButtonImage:[[UIImage imageNamed:@"common_button_normal"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)] forState:UIControlStateNormal];
+    [[SIAlertView appearance] setDefaultButtonImage:[[UIImage imageNamed:@"common_button_highlight"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)] forState:UIControlStateHighlighted];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -35,6 +43,7 @@
     self.window.rootViewController = mainTBC;
     
     [self setNavigationBarAppearance];
+    [self setSIAlertViewAppearence];
     
     return YES;
 }
