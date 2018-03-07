@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  BeeQuick
+//
+//  Created by XiaoDou_Yangf on 2016/10/27.
+//  Copyright © 2016年 xiaodou. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "AppMacro.h"
+#import "UtilsMacro.h"
+
+#import "UISetupHelper.h"
+
+/* 第三方 */
+#import "Masonry.h"
+#import "ReactiveCocoa.h"
+#import "SDCycleScrollView.h"
+#import "YYModel.h"
+#import "NJKWebViewProgress.h"
+#import "NJKWebViewProgressView.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+#import "SIAlertView.h"
+#import "KVNProgress.h"
+
+#import "CommonDataManager.h"
+
+#endif /* PrefixHeader_pch */
